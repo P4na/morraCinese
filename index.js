@@ -61,15 +61,21 @@ function startGame() { //attivo con conferma e inizia il gioco
     
     let sceltaComputer = Math.random(); //scelta del computer randomica tra 0 e 0.99
 
-    if (sceltaComputer<= 0.33) { //determino scelta computer e inserisco immagine
+    if (sceltaComputer<= 0.20) { //determino scelta computer e inserisco immagine
         sceltaComputer = "carta";
         imgMossaComp.src = "images/carta.jpg";
-    } else if (sceltaComputer > 0.33 && sceltaComputer<= 0.66){
+    } else if (sceltaComputer > 0.20 && sceltaComputer<= 0.40){
         sceltaComputer = "sasso";
         imgMossaComp.src = "images/sasso.jpg";
-    } else if (sceltaComputer > 0.66){
+    } else if (sceltaComputer > 0.40 && sceltaComputer<= 0.60){
         sceltaComputer = "forbice";
         imgMossaComp.src = "images/forbice.jpg";
+    } else if (sceltaComputer > 0.60 && sceltaComputer<= 0.80){
+        sceltaComputer = "lizard";
+        imgMossaComp.src = "images/lizard.jpg";
+    } else if (sceltaComputer > 0.80){
+        sceltaComputer = "spock";
+        imgMossaComp.src = "images/spock.jpg";
     }
 
     if (sceltaGiocatore == "carta"){ //inserisco immagine carta giocatore
@@ -84,14 +90,43 @@ function startGame() { //attivo con conferma e inizia il gioco
         risultato.innerHTML = "HAI PERSO";
         computerScore ++;
     }
+    else if (sceltaComputer == "carta" && sceltaGiocatore == "spock"){ //confronto vittoria sconfitta
+        risultato.innerHTML = "HAI PERSO";
+        computerScore ++;
+    }
     else if (sceltaComputer == "sasso" && sceltaGiocatore == "forbice"){
+        risultato.innerHTML = "HAI PERSO";
+        computerScore ++;
+    }
+    else if (sceltaComputer == "sasso" && sceltaGiocatore == "lizard"){
+        risultato.innerHTML = "HAI PERSO";
+        computerScore ++;
+    }
+    else if (sceltaComputer == "lizard" && sceltaGiocatore == "spock"){
+        risultato.innerHTML = "HAI PERSO";
+        computerScore ++;
+    }
+    else if (sceltaComputer == "lizard" && sceltaGiocatore == "carta"){
         risultato.innerHTML = "HAI PERSO";
         computerScore ++;
     }
     else if (sceltaComputer == "forbice" && sceltaGiocatore == "carta"){
         risultato.innerHTML = "HAI PERSO";
         computerScore ++;
-    } else if (sceltaComputer == sceltaGiocatore) {
+    }
+    else if (sceltaComputer == "forbice" && sceltaGiocatore == "lizard"){
+        risultato.innerHTML = "HAI PERSO";
+        computerScore ++;
+    }
+    else if (sceltaComputer == "spock" && sceltaGiocatore == "forbice"){
+        risultato.innerHTML = "HAI PERSO";
+        computerScore ++;
+    }
+    else if (sceltaComputer == "spock" && sceltaGiocatore == "sasso"){
+        risultato.innerHTML = "HAI PERSO";
+        computerScore ++;
+    }      
+     else if (sceltaComputer == sceltaGiocatore) {
         risultato.innerHTML = "PAREGGIO!";
     } else {
         risultato.innerHTML = "HAI VINTO!";
