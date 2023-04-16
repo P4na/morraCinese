@@ -3,7 +3,8 @@
 ## Description
 
 This is a very simple js version of the Chinese morra, but including the two chooses blizzard and spock.
-This game is builted in italian language
+
+**This game is totally builted in italian language.**
 
 ### Game rules
 
